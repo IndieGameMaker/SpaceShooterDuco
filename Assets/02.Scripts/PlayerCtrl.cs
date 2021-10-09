@@ -6,6 +6,7 @@ public class PlayerCtrl : MonoBehaviour
 {
     private float h;    //좌우 화살표 입력값을 저장할 실수형 변수를 선언
     private float v;    //업다운 화살표 입력값을 저장할 실수형 변수를 선언
+    private float r;    //마우스 X좌표의 변위값 저장할 실수형 변수를 선언
 
     // Start is called before the first frame update
     void Start()
@@ -31,16 +32,20 @@ public class PlayerCtrl : MonoBehaviour
     {
         h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
         v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
+        r = Input.GetAxis("Mouse X");
 
-        Debug.Log("h=" + h); // 콘솔 뷰에 h 메시지를 출력
-        Debug.Log("v=" + v); // 콘솔 뷰에 v 메시지를 출력
+        // Debug.Log("h=" + h); // 콘솔 뷰에 h 메시지를 출력
+        // Debug.Log("v=" + v); // 콘솔 뷰에 v 메시지를 출력
 
         // 벡터의 +연산을 통해 이동방향 벡터를 계산
-        //Vector3 moveDir = (전/후진 벡터) + (좌/우 벡터);
+        // Vector3 moveDir = (전/후진 벡터) + (좌/우 벡터);
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
         transform.Translate(moveDir.normalized * 0.1f);
 
-        //transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
-        //transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
+        // 회전 처리
+        transform.Rotate(Vector3.up * r * 50.0f);
+
+        // transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
+        // transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
     }
 }
