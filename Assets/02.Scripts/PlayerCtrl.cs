@@ -38,7 +38,7 @@ public class PlayerCtrl : MonoBehaviour
         // 벡터의 +연산을 통해 이동방향 벡터를 계산
         //Vector3 moveDir = (전/후진 벡터) + (좌/우 벡터);
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        transform.Translate(moveDir * 0.1f);
+        transform.Translate(moveDir.normalized * 0.1f);
 
         //transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
         //transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
