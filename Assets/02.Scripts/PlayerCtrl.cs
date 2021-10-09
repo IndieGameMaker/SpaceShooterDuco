@@ -10,10 +10,13 @@ public class PlayerCtrl : MonoBehaviour
 
     public float speed = 8.0f;
 
+    public Animation anim;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        // 컴포넌트를 추출해서 변수에 할당처리
+        anim = this.gameObject.GetComponent<Animation>();
     }
 
     // 화면을 랜더링하는 주기
@@ -42,7 +45,7 @@ public class PlayerCtrl : MonoBehaviour
         // 벡터의 +연산을 통해 이동방향 벡터를 계산
         // Vector3 moveDir = (전/후진 벡터) + (좌/우 벡터);
         Vector3 moveDir = (Vector3.forward * v) + (Vector3.right * h);
-        transform.Translate(moveDir.normalized * Time.deltaTime * 8.0f);
+        transform.Translate(moveDir.normalized * Time.deltaTime * speed);
 
         // 회전 처리
         transform.Rotate(Vector3.up * r * Time.deltaTime * 80.0f);
