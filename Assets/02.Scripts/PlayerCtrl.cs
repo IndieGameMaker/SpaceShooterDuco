@@ -10,6 +10,7 @@ public class PlayerCtrl : MonoBehaviour
 
     public float speed = 8.0f;
 
+    [HideInInspector]
     public Animation anim;
 
     // Start is called before the first frame update
