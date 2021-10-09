@@ -55,5 +55,31 @@ public class PlayerCtrl : MonoBehaviour
 
         // transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
         // transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
+        PlayerAnim();
+    }
+
+    // 주인공 캐릭터의 애니메이션을 변경하는 로직
+    void PlayerAnim()
+    {
+        if (v >= 0.1f)  // 전진
+        {
+            anim.CrossFade("RunF", 0.3f);
+        }
+        else if (v <= -0.1f) // 후진
+        {
+            anim.CrossFade("RunB", 0.3f);
+        }
+        else if (h >= 0.1f) // 오른쪽
+        {
+            anim.CrossFade("RunR", 0.3f);
+        }
+        else if (h <= -0.1f) // 왼쪽
+        {
+            anim.CrossFade("RunL", 0.3f);
+        }
+        else
+        {
+            anim.CrossFade("Idle", 0.1f);
+        }
     }
 }
