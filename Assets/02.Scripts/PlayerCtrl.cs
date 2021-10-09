@@ -18,6 +18,8 @@ public class PlayerCtrl : MonoBehaviour
     {
         // 컴포넌트를 추출해서 변수에 할당처리
         anim = this.gameObject.GetComponent<Animation>();
+
+        anim.Play("Idle");
     }
 
     // 화면을 랜더링하는 주기
