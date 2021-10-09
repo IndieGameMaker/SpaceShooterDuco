@@ -10,10 +10,13 @@ public class PlayerCtrl : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     // 화면을 랜더링하는 주기
+    /*
+        Vector3(x,y,z)
+    */
     void Update()
     {
-
+        transform.position += new Vector3(0, 0, 0.1f);
+        //transform.position = transform.position + new Vector3(0, 0, 0.1f);
     }
 }
