@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    private float h;    //좌우 화살표 입력값을 저장할 실수형 변수를 선언
+    private float v;    //업다운 화살표 입력값을 저장할 실수형 변수를 선언
+
     // Start is called before the first frame update
     void Start()
     {
