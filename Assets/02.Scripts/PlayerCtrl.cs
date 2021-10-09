@@ -8,6 +8,8 @@ public class PlayerCtrl : MonoBehaviour
     private float v;    //업다운 화살표 입력값을 저장할 실수형 변수를 선언
     private float r;    //마우스 X좌표의 변위값 저장할 실수형 변수를 선언
 
+    public float speed = 8.0f;
+
     // Start is called before the first frame update
     void Start()
     {
