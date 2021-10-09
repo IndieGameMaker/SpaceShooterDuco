@@ -32,5 +32,9 @@ public class PlayerCtrl : MonoBehaviour
         //transform.position += new Vector3(0, 0, 0.1f);
         //transform.position = transform.position + new Vector3(0, 0, 0.1f);
         transform.Translate(Vector3.forward * 0.1f);
+
+        h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
+
+        Debug.Log("h=" + h);
     }
 }
