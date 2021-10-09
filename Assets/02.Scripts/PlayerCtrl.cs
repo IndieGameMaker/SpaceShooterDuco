@@ -79,7 +79,7 @@ public class PlayerCtrl : MonoBehaviour
         }
         else
         {
-            anim.CrossFade("Idle", 0.1f);
+            anim.CrossFade("Idle", 0.3f);
         }
     }
 }
