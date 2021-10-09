@@ -29,15 +29,14 @@ public class PlayerCtrl : MonoBehaviour
     */
     void Update()
     {
-        //transform.position += new Vector3(0, 0, 0.1f);
-        //transform.position = transform.position + new Vector3(0, 0, 0.1f);
-        transform.Translate(Vector3.forward * 0.1f);
-
         h = Input.GetAxis("Horizontal"); // -1.0f ~ 0.0f ~ +1.0f
         v = Input.GetAxis("Vertical");   // -1.0f ~ 0.0f ~ +1.0f
 
         Debug.Log("h=" + h); // 콘솔 뷰에 h 메시지를 출력
         Debug.Log("v=" + v); // 콘솔 뷰에 v 메시지를 출력
+
+        transform.Translate(Vector3.forward * 0.1f * v);
+
 
     }
 }
