@@ -43,7 +43,7 @@ public class PlayerCtrl : MonoBehaviour
         transform.Translate(moveDir.normalized * 0.1f);
 
         // 회전 처리
-        transform.Rotate(Vector3.up * r * 50.0f);
+        transform.Rotate(Vector3.up * r * 10.0f);
 
         // transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
         // transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
