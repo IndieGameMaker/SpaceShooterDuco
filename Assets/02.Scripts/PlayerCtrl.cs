@@ -35,8 +35,7 @@ public class PlayerCtrl : MonoBehaviour
         Debug.Log("h=" + h); // 콘솔 뷰에 h 메시지를 출력
         Debug.Log("v=" + v); // 콘솔 뷰에 v 메시지를 출력
 
-        transform.Translate(Vector3.forward * 0.1f * v);
-
-
+        transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
+        transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
     }
 }
