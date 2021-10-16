@@ -14,11 +14,15 @@ public class RemoveBullet : MonoBehaviour
             // 총알을 삭제
             Destroy(coll.gameObject);
 
-            // 충돌 좌표
+            // 충돌 지점의 정보
             ContactPoint cp = coll.GetContact(0);
+            // 법선 벡터
+            Vector3 _normal = -cp.normal;
+            // 벡터 방향의 각도를 계산
+            Quaternion rot = Quaternion.LookRotation(_normal);
 
             // 스파크 이펙트를 생성
-            Instantiate(sparkEffect, cp.point, Quaternion.identity);
+            Instantiate(sparkEffect, cp.point, rot);
         }
     }
 }
