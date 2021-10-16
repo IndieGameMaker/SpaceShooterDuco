@@ -11,9 +11,13 @@ public class BarrelCtrl : MonoBehaviour
     public MeshRenderer renderer;
     public Texture[] textures;
 
+    private AudioSource audio;
+    public AudioClip expSfx;
+
     void Start()
     {
         renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+        audio = GetComponent<AudioSource>();
 
         int idx = Random.Range(0, textures.Length); // 0,1,2
         renderer.material.mainTexture = textures[idx];
@@ -47,6 +51,9 @@ public class BarrelCtrl : MonoBehaviour
         // 폭발효과 발생
         GameObject obj = Instantiate(expEffect, this.transform.position, Quaternion.identity);
         Destroy(obj, 5.0f);
+
+        // 폭발음 발생
+        audio.PlayOneShot(expSfx, 0.9f);
     }
 }
 
