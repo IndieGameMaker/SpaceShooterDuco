@@ -10,6 +10,11 @@ public class BarrelCtrl : MonoBehaviour
     public MeshRenderer renderer;
     public Texture[] textures;
 
+    void Start()
+    {
+        renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+    }
+
     void OnCollisionEnter(Collision coll)
     {
         //if (coll.collider.tag == "문자열") // X
