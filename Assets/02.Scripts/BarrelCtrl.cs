@@ -7,6 +7,9 @@ public class BarrelCtrl : MonoBehaviour
     private int hitCount;
     public GameObject expEffect;
 
+    public MeshRenderer renderer;
+    public Texture[] textures;
+
     void OnCollisionEnter(Collision coll)
     {
         //if (coll.collider.tag == "문자열") // X
