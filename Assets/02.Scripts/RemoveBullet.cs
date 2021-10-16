@@ -22,7 +22,8 @@ public class RemoveBullet : MonoBehaviour
             Quaternion rot = Quaternion.LookRotation(_normal);
 
             // 스파크 이펙트를 생성
-            Instantiate(sparkEffect, cp.point, rot);
+            GameObject obj = Instantiate(sparkEffect, cp.point, rot);
+            Destroy(obj, 0.4f);
         }
     }
 }
@@ -41,4 +42,11 @@ public class RemoveBullet : MonoBehaviour
 
 
     법선벡터(Normal) : 충돌지점에서 수직을 이루는 벡터
+
+
+    Quaternion (쿼터니언) 사원수 - (복소수 4차원 벡터) - x,y,z,w
+
+    오일러 각 (0 ~ 360)  x -> y -> z 오일러 회전
+    짐벌락(Gimbal Lock)
+
 */
