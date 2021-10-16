@@ -37,5 +37,18 @@ public class FireCtrl : MonoBehaviour
         Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         // 총소리 발생
         audio.PlayOneShot(fireSfx, 0.8f);
+        // 총구 화염 효과
+        ShowMuzzleFlash();
+    }
+
+    void ShowMuzzleFlash()
+    {
+        // MeshRenderer 컴포넌트를 활성화
+        muzzleFlash.enabled = true;
+
+        // 대기하는 로직
+
+        // MeshRenderer 비활성
+        muzzleFlash.enabled = false;
     }
 }
