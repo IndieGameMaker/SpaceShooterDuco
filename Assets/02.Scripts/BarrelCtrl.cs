@@ -7,13 +7,22 @@ public class BarrelCtrl : MonoBehaviour
     private int hitCount;
     public GameObject expEffect;
 
+    [HideInInspector]
     public MeshRenderer renderer;
     public Texture[] textures;
 
     void Start()
     {
         renderer = this.gameObject.GetComponentInChildren<MeshRenderer>();
+
+        int idx = Random.Range(0, textures.Length); // 0,1,2
+        renderer.material.mainTexture = textures[idx];
     }
+
+    /*
+        Random.Range(0, 10) : 0 ~ 9
+        Random.Range(0.0f, 10.0f) : 0.0f ~ 10.0f
+    */
 
     void OnCollisionEnter(Collision coll)
     {
