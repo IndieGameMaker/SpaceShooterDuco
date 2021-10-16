@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RemoveBullet : MonoBehaviour
 {
+    public GameObject sparkEffect;
+
     // 충돌 콜백함수 (Callback function)
     void OnCollisionEnter(Collision coll)
     {
@@ -27,4 +29,6 @@ public class RemoveBullet : MonoBehaviour
     OnCollisionStay
     OnCollisionExit
 
+
+    법선벡터(Normal) : 충돌지점에서 수직을 이루는 벡터
 */
