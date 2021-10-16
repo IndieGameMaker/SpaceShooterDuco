@@ -33,6 +33,7 @@ public class Monster : MonoBehaviour
         }
 
         StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction()); // StartCoroutine("MonsterAction");
     }
 
     // 몬스터의 상태를 체크하는 코루틴
@@ -56,6 +57,34 @@ public class Monster : MonoBehaviour
             else
             {
                 state = State.IDLE;
+            }
+
+            yield return new WaitForSeconds(0.3f);
+        }
+    }
+
+    // 몬스터의 상태에 따라서 행동처리하는 코루틴
+    IEnumerator MonsterAction()
+    {
+        while (!isDie)
+        {
+            switch (state)
+            {
+                case State.IDLE:
+                    //
+                    Debug.Log("휴면모드");
+                    break;
+                case State.TRACE:
+                    //
+                    Debug.Log("추적모드");
+                    break;
+                case State.ATTACK:
+                    //
+                    Debug.Log("공격모드");
+                    break;
+                case State.DIE:
+                    //
+                    break;
             }
 
             yield return new WaitForSeconds(0.3f);
