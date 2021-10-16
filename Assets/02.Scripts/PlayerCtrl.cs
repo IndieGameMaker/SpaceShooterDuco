@@ -13,9 +13,16 @@ public class PlayerCtrl : MonoBehaviour
     [HideInInspector]
     public Animation anim;
 
+    public float turnSpeed = 100.0f;
+    private float _turnSpeed;
+
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start()
     {
+        _turnSpeed = 0.0f;
+        yield return new WaitForSeconds(0.3f);
+        _turnSpeed = turnSpeed;
+
         // 컴포넌트를 추출해서 변수에 할당처리
         anim = this.gameObject.GetComponent<Animation>();
 
@@ -51,7 +58,7 @@ public class PlayerCtrl : MonoBehaviour
         transform.Translate(moveDir.normalized * Time.deltaTime * speed);
 
         // 회전 처리
-        transform.Rotate(Vector3.up * r * Time.deltaTime * 80.0f);
+        transform.Rotate(Vector3.up * r * Time.deltaTime * _turnSpeed);
 
         // transform.Translate(Vector3.forward * 0.1f * v);    //전/후 이동
         // transform.Translate(Vector3.right * 0.1f * h);      //좌/우 이동
