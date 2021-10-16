@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarrelCtrl : MonoBehaviour
 {
     private int hitCount;
+    public GameObject expEffect;
 
     void OnCollisionEnter(Collision coll)
     {
@@ -25,6 +26,10 @@ public class BarrelCtrl : MonoBehaviour
         Rigidbody rb = this.gameObject.AddComponent<Rigidbody>();
         rb.AddForce(Vector3.up * 1500.0f);
         Destroy(this.gameObject, 3.0f);
+
+        // 폭발효과 발생
+        GameObject obj = Instantiate(expEffect, this.transform.position, Quaternion.identity);
+        Destroy(obj, 5.0f);
     }
 }
 
