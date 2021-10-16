@@ -13,6 +13,12 @@ public class RemoveBullet : MonoBehaviour
         {
             // 총알을 삭제
             Destroy(coll.gameObject);
+
+            // 충돌 좌표
+            ContactPoint cp = coll.GetContact(0);
+
+            // 스파크 이펙트를 생성
+            Instantiate(sparkEffect, cp.point, Quaternion.identity);
         }
     }
 }
