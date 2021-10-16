@@ -77,3 +77,19 @@ public class FireCtrl : MonoBehaviour
     4. Panoramic Sky
 
 */
+
+/*
+    LOD (Level of Detail)
+
+    카메라로 부터 가까울 수록 하이 폴리곤으로 교체
+    LOD0 - High
+    LOD1 - Middle
+    LOD2 - Low
+    Culling
+*/
+
+/*
+    유한상태머신 (Finite State Machine:FSM)
+        - NPC(NonPlayable Character) 인공지능
+
+*/
