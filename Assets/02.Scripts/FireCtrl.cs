@@ -52,6 +52,10 @@ public class FireCtrl : MonoBehaviour
         muzzleFlash.transform.localScale = Vector3.one * Random.Range(1.0f, 3.0f);
         // = new Vector3(1,1,1) * Random.Range(1,0f, 3.0f)
 
+        // 회전 처리
+        muzzleFlash.transform.localRotation = Quaternion.Euler(Vector3.forward * Random.Range(0, 360));
+        // = Quaternion.Euler(0, 0, Random.Range(0, 360));
+
         // MeshRenderer 컴포넌트를 활성화
         muzzleFlash.enabled = true;
 
