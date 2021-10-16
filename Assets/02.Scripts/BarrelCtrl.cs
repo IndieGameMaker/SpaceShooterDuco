@@ -61,3 +61,11 @@ public class BarrelCtrl : MonoBehaviour
     C# - Managed Language : 메모리 활당 / 해제 자동으로 처리한 언어 - Garbage Collection
     C,C++ - Unmanaged Language 
 */
+
+/*
+    총구화염 효과 (Muzzle Flash)
+
+    1. 파티클 효과
+    2. Mesh
+
+*/

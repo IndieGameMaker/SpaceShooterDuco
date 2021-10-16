@@ -12,10 +12,13 @@ public class FireCtrl : MonoBehaviour
     public AudioClip fireSfx;       // 총소리 음원
 
     private AudioSource audio;
+    private MeshRenderer muzzleFlash;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        muzzleFlash = firePos.GetComponentInChildren<MeshRenderer>();
+        muzzleFlash.enabled = false;
     }
 
     // Update is called once per frame
