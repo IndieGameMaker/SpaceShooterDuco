@@ -20,13 +20,13 @@ public class PlayerCtrl : MonoBehaviour
     IEnumerator Start()
     {
         _turnSpeed = 0.0f;
-        yield return new WaitForSeconds(0.3f);
-        _turnSpeed = turnSpeed;
-
         // 컴포넌트를 추출해서 변수에 할당처리
         anim = this.gameObject.GetComponent<Animation>();
 
         anim.Play("Idle");
+
+        yield return new WaitForSeconds(0.3f);
+        _turnSpeed = turnSpeed;
     }
 
     // 화면을 랜더링하는 주기
