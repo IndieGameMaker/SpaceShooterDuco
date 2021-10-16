@@ -12,11 +12,19 @@ public class Monster : MonoBehaviour
 
     public State state = State.IDLE;
 
+    private Transform monsterTr;
+    private Transform playerTr;
 
     // Start is called before the first frame update
     void Start()
     {
+        monsterTr = GetComponent<Transform>();
 
+        GameObject playerObj = GameObject.FindGameObjectWithTag("PLAYER");
+        if (playerObj != null)
+        {
+            playerTr = playerObj.GetComponent<Transform>(); //playerObj.transform;
+        }
     }
 
     // Update is called once per frame
