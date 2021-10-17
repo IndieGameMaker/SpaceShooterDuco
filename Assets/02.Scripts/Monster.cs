@@ -140,13 +140,17 @@ public class Monster : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject);
-            anim.SetTrigger(hashHit);
+        }
+    }
 
-            hp -= 20.0f;
-            if (hp <= 0.0f)
-            {
-                state = State.DIE;
-            }
+    public void OnDamage(float damage)
+    {
+        anim.SetTrigger(hashHit);
+
+        hp -= damage;
+        if (hp <= 0.0f)
+        {
+            state = State.DIE;
         }
     }
 
