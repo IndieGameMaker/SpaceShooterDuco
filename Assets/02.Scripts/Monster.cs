@@ -26,8 +26,10 @@ public class Monster : MonoBehaviour
 
     private int hashAttack = Animator.StringToHash("IsAttack");
     private int hashHit = Animator.StringToHash("Hit");
+    private int hashDie = Animator.StringToHash("Die");
 
-    // Start is called before the first frame update
+    private float hp = 100.0f;
+
     void Start()
     {
         monsterTr = GetComponent<Transform>();
@@ -50,6 +52,8 @@ public class Monster : MonoBehaviour
     {
         while (!isDie)
         {
+            if (state == State.DIE) yield break;
+
             // 몬스터의 상태를 체크하는 로직
             // 주인공의 위치와 몬스터의 위치값으로 거리 계산
             float distance = Vector3.Distance(playerTr.position, monsterTr.position);
@@ -96,7 +100,9 @@ public class Monster : MonoBehaviour
                     break;
 
                 case State.DIE:
-                    //
+                    anim.SetTrigger(hashDie);
+                    agent.isStopped = true;
+                    isDie = true;
                     break;
             }
 
@@ -110,6 +116,12 @@ public class Monster : MonoBehaviour
         {
             Destroy(coll.gameObject);
             anim.SetTrigger(hashHit);
+
+            hp -= 20.0f;
+            if (hp <= 0.0f)
+            {
+                state = State.DIE;
+            }
         }
     }
 
