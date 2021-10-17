@@ -19,6 +19,12 @@ public class PlayerCtrl : MonoBehaviour
     private float initHp = 100.0f;
     public float currHp = 100.0f;
 
+    // 델리게이트 선언
+    public delegate void PlayerDieHandler();
+
+    // 이벤트를 정의
+    public static event PlayerDieHandler OnPlayerDie;
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -100,7 +106,9 @@ public class PlayerCtrl : MonoBehaviour
             currHp -= 10.0f;
             if (currHp <= 0.0f)
             {
-                PlayerDie();
+                OnPlayerDie();
+
+                //PlayerDie();
             }
         }
     }
