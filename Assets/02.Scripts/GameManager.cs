@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject monsterPrefab;
     public Transform[] points;
 
+    // 오브젝트 풀링 변수
+    public List<GameObject> monsterPool = new List<GameObject>();
+    public int maxPool = 10;
+
     public bool isGameOver;
     public float createTime = 3.0f;
 
@@ -31,9 +35,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
+        MakeMonsterPool();
 
         //InvokeRepeating("CreateMonster", 2.0f, createTime);
-        StartCoroutine(CreateMonster());
+        //StartCoroutine(CreateMonster());
+    }
+
+    void MakeMonsterPool()
+    {
+        for (int i = 0; i < maxPool; i++)
+        {
+            GameObject monster = Instantiate<GameObject>(monsterPrefab);
+            monster.name = $"Monster_{i:00}";
+            monster.SetActive(false);
+
+            monsterPool.Add(monster);
+        }
     }
 
     IEnumerator CreateMonster()
@@ -56,5 +73,11 @@ public class GameManager : MonoBehaviour
 /*
     싱글턴 디자인 패턴 (Singleton Design Pattern)
         - 전역적인 접근이 편리한 장점
+*/
 
+/*
+    오브젝트 풀링 (Object Pooling)
+
+    Instantiate
+    Destroy
 */
