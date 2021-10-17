@@ -89,4 +89,12 @@ public class PlayerCtrl : MonoBehaviour
             anim.CrossFade("Idle", 0.3f);
         }
     }
+
+    void OnTriggerEnter(Collider coll)
+    {
+        if (coll.CompareTag("PUNCH"))
+        {
+            Debug.Log(coll.gameObject.name);
+        }
+    }
 }
