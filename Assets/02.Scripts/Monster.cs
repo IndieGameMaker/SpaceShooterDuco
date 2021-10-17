@@ -34,6 +34,8 @@ public class Monster : MonoBehaviour
             playerTr = playerObj.GetComponent<Transform>(); //playerObj.transform;
         }
 
+        agent = GetComponent<NavMeshAgent>();
+
         StartCoroutine(CheckMonsterState());
         StartCoroutine(MonsterAction()); // StartCoroutine("MonsterAction");
     }
@@ -76,10 +78,11 @@ public class Monster : MonoBehaviour
                     //
                     Debug.Log("휴면모드");
                     break;
+
                 case State.TRACE:
-                    //
-                    Debug.Log("추적모드");
+                    agent.SetDestination(playerTr.position);
                     break;
+
                 case State.ATTACK:
                     //
                     Debug.Log("공격모드");
