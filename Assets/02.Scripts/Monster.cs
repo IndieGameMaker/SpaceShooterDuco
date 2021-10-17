@@ -75,12 +75,12 @@ public class Monster : MonoBehaviour
             switch (state)
             {
                 case State.IDLE:
-                    //
-                    Debug.Log("휴면모드");
+                    agent.isStopped = true;
                     break;
 
                 case State.TRACE:
                     agent.SetDestination(playerTr.position);
+                    agent.isStopped = false;
                     break;
 
                 case State.ATTACK:
