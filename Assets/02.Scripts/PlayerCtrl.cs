@@ -16,6 +16,9 @@ public class PlayerCtrl : MonoBehaviour
     public float turnSpeed = 100.0f;
     private float _turnSpeed;
 
+    private float initHp = 100.0f;
+    public float currHp = 100.0f;
+
     // Start is called before the first frame update
     IEnumerator Start()
     {
@@ -92,9 +95,18 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.CompareTag("PUNCH"))
+        if (currHp > 0.0f && coll.CompareTag("PUNCH"))
         {
-            Debug.Log(coll.gameObject.name);
+            currHp -= 10.0f;
+            if (currHp <= 0.0f)
+            {
+                PlayerDie();
+            }
         }
+    }
+
+    void PlayerDie()
+    {
+        Debug.Log("플레이어 사망");
     }
 }

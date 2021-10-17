@@ -8,10 +8,10 @@ public class BarrelCtrl : MonoBehaviour
     public GameObject expEffect;
 
     [HideInInspector]
-    public MeshRenderer renderer;
+    public new MeshRenderer renderer;
     public Texture[] textures;
 
-    private AudioSource audio;
+    private new AudioSource audio;
     public AudioClip expSfx;
 
     void Start()
