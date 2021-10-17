@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
         MakeMonsterPool();
 
         //InvokeRepeating("CreateMonster", 2.0f, createTime);
-        //StartCoroutine(CreateMonster());
+        StartCoroutine(CreateMonster());
     }
 
     void MakeMonsterPool()
@@ -59,11 +59,21 @@ public class GameManager : MonoBehaviour
 
         while (!isGameOver)
         {
-            // 출현시킬 위치정보 Index 추출
-            int idx = Random.Range(1, points.Length); //1~23
-
             // 몬스터 생성
-            Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+            //Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+            foreach (var monster in monsterPool)
+            {
+                // 사용가능한 몬스터 여부를 확인
+                if (monster.activeSelf == false)
+                {
+                    // 출현시킬 위치정보 Index 추출
+                    int idx = Random.Range(1, points.Length); //1~23
+
+                    monster.transform.position = points[idx].position;
+                    monster.SetActive(true);
+                    break;
+                }
+            }
 
             yield return new WaitForSeconds(createTime);
         }

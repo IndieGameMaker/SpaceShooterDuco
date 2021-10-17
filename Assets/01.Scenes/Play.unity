@@ -317,7 +317,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 3.178771, y: 1}
+    m_SensorSize: {x: 1.7093426, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -985,6 +985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 5955051896904953974, guid: 3d03031f675624894b790362240857e2, type: 3}
   points: []
+  monsterPool: []
+  maxPool: 10
   isGameOver: 0
   createTime: 3
 --- !u!4 &544773481
