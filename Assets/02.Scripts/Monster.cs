@@ -127,6 +127,15 @@ public class Monster : MonoBehaviour
         }
     }
 
+    void YouWin()
+    {
+        // 모든 코루틴 정지
+        StopAllCoroutines();
+
+        agent.isStopped = true;
+        anim.SetTrigger(hashPlayerDie);
+    }
+
 }
 
 /*
