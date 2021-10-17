@@ -15,15 +15,23 @@ public class GameManager : MonoBehaviour
     {
         points = GameObject.Find("SpawnPointGroup").GetComponentsInChildren<Transform>();
 
-        InvokeRepeating("CreateMonster", 2.0f, createTime);
+        //InvokeRepeating("CreateMonster", 2.0f, createTime);
+        StartCoroutine(CreateMonster());
     }
 
-    void CreateMonster()
+    IEnumerator CreateMonster()
     {
-        // 출현시킬 위치정보 Index 추출
-        int idx = Random.Range(1, points.Length); //1~23
+        yield return new WaitForSeconds(2.0f);
 
-        // 몬스터 생성
-        Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+        while (!isGameOver)
+        {
+            // 출현시킬 위치정보 Index 추출
+            int idx = Random.Range(1, points.Length); //1~23
+
+            // 몬스터 생성
+            Instantiate(monsterPrefab, points[idx].position, Quaternion.identity);
+
+            yield return new WaitForSeconds(createTime);
+        }
     }
 }
