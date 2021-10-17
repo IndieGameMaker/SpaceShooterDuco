@@ -4,11 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // 싱글턴 변수를 정의
+    public static GameManager instance = null;
+
     public GameObject monsterPrefab;
     public Transform[] points;
 
     public bool isGameOver;
     public float createTime = 3.0f;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -35,3 +52,9 @@ public class GameManager : MonoBehaviour
         }
     }
 }
+
+/*
+    싱글턴 디자인 패턴 (Singleton Design Pattern)
+        - 전역적인 접근이 편리한 장점
+
+*/
