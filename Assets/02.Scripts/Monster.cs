@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;  //네비게이션 컴포넌트를 사용하기 위해 선언하는 네임스페이스
 
 public class Monster : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Monster : MonoBehaviour
 
     private Transform monsterTr;
     private Transform playerTr;
+    private NavMeshAgent agent;
 
     // 추적사정거리 , 공격사정거리 변수
     public float traceDist = 10.0f;
@@ -91,3 +93,8 @@ public class Monster : MonoBehaviour
         }
     }
 }
+
+/*
+    A* PathFinding
+    Navigation -> Data(NavMesh) -> NavMeshAgent(A*P)
+*/
