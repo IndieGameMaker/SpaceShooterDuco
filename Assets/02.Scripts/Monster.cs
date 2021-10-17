@@ -34,6 +34,9 @@ public class Monster : MonoBehaviour
     void OnEnable()
     {
         PlayerCtrl.OnPlayerDie += YouWin;
+
+        StartCoroutine(CheckMonsterState());
+        StartCoroutine(MonsterAction()); // StartCoroutine("MonsterAction");        
     }
 
     void OnDisable()
@@ -41,7 +44,7 @@ public class Monster : MonoBehaviour
         PlayerCtrl.OnPlayerDie -= YouWin;
     }
 
-    void Start()
+    void Awake()
     {
         monsterTr = GetComponent<Transform>();
 
@@ -54,8 +57,7 @@ public class Monster : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
-        StartCoroutine(CheckMonsterState());
-        StartCoroutine(MonsterAction()); // StartCoroutine("MonsterAction");
+
     }
 
     // 몬스터의 상태를 체크하는 코루틴
@@ -115,12 +117,23 @@ public class Monster : MonoBehaviour
                     anim.SetTrigger(hashDie);
                     agent.isStopped = true;
                     isDie = true;
+                    Invoke("ReturnPool", 5.0f);
                     break;
             }
 
             yield return new WaitForSeconds(0.3f);
         }
     }
+
+    void ReturnPool()
+    {
+        this.gameObject.SetActive(false); // 오브젝트 풀링에 환원
+        GetComponent<CapsuleCollider>().enabled = true;
+        isDie = false;
+        hp = 100.0f;
+        state = State.IDLE;
+    }
+
 
     void OnCollisionEnter(Collision coll)
     {
