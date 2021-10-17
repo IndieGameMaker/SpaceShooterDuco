@@ -31,6 +31,16 @@ public class Monster : MonoBehaviour
 
     private float hp = 100.0f;
 
+    void OnEnable()
+    {
+        PlayerCtrl.OnPlayerDie += YouWin;
+    }
+
+    void OnDisable()
+    {
+        PlayerCtrl.OnPlayerDie -= YouWin;
+    }
+
     void Start()
     {
         monsterTr = GetComponent<Transform>();
