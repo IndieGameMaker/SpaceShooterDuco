@@ -16,7 +16,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 17
   m_IsActive: 1
 --- !u!4 &6685410074177950720
 Transform:
@@ -95,12 +95,13 @@ GameObject:
   - component: {fileID: 3021171052604798554}
   - component: {fileID: 3021171052604798553}
   - component: {fileID: 6434278009005675475}
+  - component: {fileID: 8296172669027254412}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 17
   m_IsActive: 1
 --- !u!4 &7824986616340176826
 Transform:
@@ -259,3 +260,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!208 &8296172669027254412
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6542804498110393769}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.9, y: 1.25, z: 0.9}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
+  m_Center: {x: 0, y: 1.25, z: 0}
+  m_TimeToStationary: 0.5
