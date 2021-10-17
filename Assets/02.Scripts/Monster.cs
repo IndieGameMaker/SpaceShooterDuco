@@ -133,6 +133,9 @@ public class Monster : MonoBehaviour
         StopAllCoroutines();
 
         agent.isStopped = true;
+
+        anim.SetFloat("AnimSpeed", Random.Range(0.8f, 1.5f));
+
         anim.SetTrigger(hashPlayerDie);
     }
 
