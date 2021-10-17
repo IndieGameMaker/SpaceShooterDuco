@@ -168,3 +168,8 @@ public class Monster : MonoBehaviour
     A* PathFinding
     Navigation -> Data(NavMesh) -> NavMeshAgent(A*P)
 */
+
+/*
+    레이케스팅 (Raycasting)
+
+*/

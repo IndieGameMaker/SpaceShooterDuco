@@ -24,6 +24,8 @@ public class FireCtrl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.DrawRay(firePos.position, firePos.forward * 10.0f, Color.green);
+
         if (Input.GetMouseButtonDown(0))
         {
             Fire();
@@ -34,7 +36,7 @@ public class FireCtrl : MonoBehaviour
     {
         // 총알을 생성 
         // 객체 생성 Instantiate(생성할객체, 위치, 각도)
-        Instantiate(bulletPrefab, firePos.position, firePos.rotation);
+        //Instantiate(bulletPrefab, firePos.position, firePos.rotation);
         // 총소리 발생
         audio.PlayOneShot(fireSfx, 0.8f);
         // 총구 화염 효과
