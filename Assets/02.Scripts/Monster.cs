@@ -27,6 +27,7 @@ public class Monster : MonoBehaviour
     private int hashAttack = Animator.StringToHash("IsAttack");
     private int hashHit = Animator.StringToHash("Hit");
     private int hashDie = Animator.StringToHash("Die");
+    private int hashPlayerDie = Animator.StringToHash("PlayerDie");
 
     private float hp = 100.0f;
 
