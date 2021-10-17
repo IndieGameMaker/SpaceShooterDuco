@@ -25,6 +25,7 @@ public class Monster : MonoBehaviour
     public bool isDie = false;
 
     private int hashAttack = Animator.StringToHash("IsAttack");
+    private int hashHit = Animator.StringToHash("Hit");
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +109,7 @@ public class Monster : MonoBehaviour
         if (coll.collider.CompareTag("BULLET"))
         {
             Destroy(coll.gameObject);
-
+            anim.SetTrigger(hashHit);
         }
     }
 
