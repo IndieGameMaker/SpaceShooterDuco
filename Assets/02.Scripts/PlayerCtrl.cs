@@ -107,6 +107,12 @@ public class PlayerCtrl : MonoBehaviour
 
     void PlayerDie()
     {
-        Debug.Log("플레이어 사망");
+        // 스테이지에 있는 모든 몬스터를 배열에 저장
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("MONSTER");
+
+        foreach (GameObject monster in monsters)
+        {
+            monster.SendMessage("YouWin", SendMessageOptions.DontRequireReceiver);
+        }
     }
 }
