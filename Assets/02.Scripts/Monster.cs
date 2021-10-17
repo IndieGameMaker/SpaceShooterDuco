@@ -24,6 +24,8 @@ public class Monster : MonoBehaviour
 
     public bool isDie = false;
 
+    private int hashAttack = Animator.StringToHash("IsAttack");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -85,12 +87,13 @@ public class Monster : MonoBehaviour
                     agent.SetDestination(playerTr.position);
                     agent.isStopped = false;
                     anim.SetBool("IsTrace", true);
+                    anim.SetBool(hashAttack, false);
                     break;
 
                 case State.ATTACK:
-                    //
-                    Debug.Log("공격모드");
+                    anim.SetBool(hashAttack, true);
                     break;
+
                 case State.DIE:
                     //
                     break;
