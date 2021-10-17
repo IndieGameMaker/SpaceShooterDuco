@@ -107,6 +107,9 @@ public class PlayerCtrl : MonoBehaviour
             if (currHp <= 0.0f)
             {
                 OnPlayerDie();
+                GameManager.instance.isGameOver = true;
+
+                //GameObject.Find("GameManager").GetComponent<GameManager>().isGameOver = true;
 
                 //PlayerDie();
             }
